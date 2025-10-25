@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radiowęzeł ZSP Bytów - Zgłoś Piosenkę</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Radiowęzeł ZSP Bytów</h1>
+            <p class="subtitle">Zgłoś swoją ulubioną piosenkę na przerwę!</p>
+        </header>
+        <main>
+            <div class="info-box">
+                <h2>📋 Zasady</h2>
+                <ul>
+                    <li>✅ Tylko emaile <strong>@zspbytow.pl</strong></li>
+                    <li>✅ Maksymalnie <strong>1 piosenka na 2 dni</strong></li>
+                    <li>✅ Wymagana <strong>weryfikacja emaila</strong> kodem</li>
+                    <li>❌ Bez piosenek z wulgaryzmami lub treściami explicit</li>
+                    <li>✅ Piosenka musi być dostępna na Spotify</li>
+                </ul>
+            </div>
+            <div class="form-container">
+                <h2>Zgłoś piosenkę</h2>
+                <form id="songForm">
+                    <div class="form-group">
+                        <label for="email">📧 Twój email szkolny</label>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="email" id="email" name="email" placeholder="jan.kowalski23@zspbytow.pl" required style="flex: 1;">
+                            <button type="button" id="requestCodeBtn" style="width: auto; padding: 12px 20px;">Wyślij kod 📧</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="code">🔐 Kod weryfikacyjny</label>
+                        <input type="text" id="code" name="code" placeholder="123456" required disabled maxlength="6">
+                        <small style="color: #666;">Kod zostanie wysłany na Twój email (w wersji dev wyświetli się w konsoli serwera)</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="artist">🎤 Wykonawca</label>
+                        <input type="text" id="artist" name="artist" placeholder="np. Taco Hemingway" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">🎵 Tytuł piosenki</label>
+                        <input type="text" id="title" name="title" placeholder="np. Wosk" required>
+                    </div>
+                    <button type="submit" id="submitBtn">Zgłoś piosenkę 🚀</button>
+                </form>
+                <div id="messageBox" class="message-box" style="display: none;"></div>
+            </div>
+            <div class="stats-box">
+                <h3>📊 Dzisiejsze zgłoszenia</h3>
+                <div id="stats">
+                    <div class="stat-item">
+                        <span class="stat-label">Zaakceptowane:</span>
+                        <span class="stat-value" id="approvedCount">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Odrzucone:</span>
+                        <span class="stat-value" id="rejectedCount">-</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Razem:</span>
+                        <span class="stat-value" id="totalCount">-</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <p>Radiowęzeł ZSP Bytów © 2025</p>
+            <p><a href="/admin">Panel administracyjny</a></p>
+        </footer>
+    </div>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

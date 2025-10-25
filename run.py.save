@@ -1,0 +1,52 @@
+from app import create_app
+import os
+
+app = create_app()
+
+if __name__ == '__main__':
+    # Upewnij się że katalog data/ istnieje
+    os.makedirs('data', exist_ok=True)
+    
+    print("=" * 50)
+    print("🎵 System zgłaszania piosenek - ZSP Bytów")
+    print("=" * 50)
+    print("Aplikacja uruchomiona na: http://localhost:5000")
+    print("Panel admin: http://localhost:5000/admin")
+    print("=" * 50)
+    
+    # DEBUGGING - sprawdź ścieżki
+    print("\n🔍 DEBUGGING:")
+    print(f"Current working directory: {os.getcwd()}")
+    print(f"Template folder: {app.template_folder}")
+    print(f"Root path: {app.root_path}")
+    print(f"Templates exist: {os.path.exists('templates')}")
+    print(f"index.html exists: {os.path.exists('templates/index.html')}")
+    print("=" * 50 + "\n")
+    
+    # Uruchom aplikację
+    app.run(
+        debug=True,
+        host='0.0.0.0',
+        port=5000
+    )from app import create_app
+import os
+
+app = create_app()
+
+if __name__ == '__main__':
+    # Upewnij się że katalog data/ istnieje
+    os.makedirs('data', exist_ok=True)
+    
+    print("=" * 50)
+    print("🎵 System zgłaszania piosenek - ZSP Bytów")
+    print("=" * 50)
+    print("Aplikacja uruchomiona na: http://localhost:5000")
+    print("Panel admin: http://localhost:5000/admin")
+    print("=" * 50)
+    
+    # Uruchom aplikację
+    app.run(
+        debug=True,
+        host='0.0.0.0',
+        port=5000
+    )
